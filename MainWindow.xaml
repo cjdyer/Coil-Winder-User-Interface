@@ -1,0 +1,141 @@
+﻿<Window x:Class="Coil_Windie_Boi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Height="454" Width="694"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="Transparent">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static SystemCommands.CloseWindowCommand}" CanExecute="CommandBinding_CanExecute_1" Executed="CommandBinding_Executed_1" />
+        <CommandBinding Command="{x:Static SystemCommands.MaximizeWindowCommand}" CanExecute="CommandBinding_CanExecute_1" Executed="CommandBinding_Executed_2" />
+        <CommandBinding Command="{x:Static SystemCommands.MinimizeWindowCommand}" CanExecute="CommandBinding_CanExecute_1" Executed="CommandBinding_Executed_3" />
+    </Window.CommandBindings>
+
+    <Border BorderBrush="#FF858585" BorderThickness="2">
+        <Grid Width="690" Height="450">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="450"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Rectangle Grid.Row="2">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,3.5">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Color="#2AB7CA" Offset="0"/>
+                            <GradientStop Color="#32161F" Offset="1"/>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Rectangle Grid.Row="1" Opacity="1">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,0.1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Color="Transparent" Offset="1"/>
+                            <GradientStop Color="White" Offset="0"/>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Rectangle Grid.Row="0">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="White"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Grid Grid.Row="0">
+                <Image Source="Icon.ico" Width="25" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2.5"/>
+                <Label Content="Wire Master - Coil Winder" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" FontFamily="Yu Gothic UI" FontSize="15" Foreground="Black"/>
+                <Thumb 
+                    x:Name="headerThumb" 
+                    Opacity="0" 
+                    Background="{x:Null}" 
+                    Foreground="{x:Null}" 
+                    DragDelta="headerThumb_DragDelta"/>
+                <Button Command="{x:Static SystemCommands.CloseWindowCommand}" Height="30" Width="30" HorizontalAlignment="Right" Background="Transparent" Foreground="Transparent" BorderThickness="0">
+                    <StackPanel>
+                        <Image Source="Resources/close.png" Width="20" Height="20" />
+                    </StackPanel>
+                </Button>
+                <Button Command="{x:Static SystemCommands.MinimizeWindowCommand}" Width="30" Height="30" HorizontalAlignment="Right" Margin="0,0,30,0" Background="Transparent" Foreground="Transparent" BorderThickness="0">
+                    <StackPanel>
+                        <Image Source="Resources/minimise.png" Width="25" Height="25" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid x:Name="Column_One" Margin="25,25,25,50">
+                    <Label Content="Calibration &#xA;Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-5,0,0,0" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="30" Foreground="#FFFFFFFF"/>
+                    <Label x:Name="PortNameLabel" Content="COM Port:" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="20" Foreground="#FFFFFFFF" FontWeight="Thin"/>
+                    <TextBox x:Name="PortNameText" HorizontalAlignment="Left" Height="23" Margin="5,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="COM3" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="15" FontWeight="Thin"/>
+                    <Label x:Name="BaudRateLabel" Content="Baud Rate:" HorizontalAlignment="Left" Margin="0,183,0,0" VerticalAlignment="Top" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="20" Foreground="#FFFFFFFF" FontWeight="Thin"/>
+                    <TextBox x:Name="BaudRateText" HorizontalAlignment="Left" Height="23" Margin="5,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="9600" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="15" FontWeight="Thin"/>
+                    <Button x:Name="CalibrateButton" Content="Calibrate" HorizontalAlignment="Left" Margin="5,280,0,0" VerticalAlignment="Top" Width="121" Height="31" Click="CalibrateButton_Click" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="20" FontWeight="Thin"/>
+                    <Button x:Name="PingButton" Content="Ping" HorizontalAlignment="Left" Margin="5,320,0,0" VerticalAlignment="Top" Width="121" Height="31" Click="PingButton_Click" IsEnabled="False" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="20" FontWeight="Thin"/>
+                </Grid>
+
+
+                <Grid x:Name="Column_Two" Margin="200,25,25,50">
+                    <Label Content="Winding &#xA;Settings" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="-5,0,0,0" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="30" Foreground="#FFFFFFFF"/>
+                    <Label x:Name="WireDiameterLabel" Content="Wire Diameter:" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="20" Foreground="#FFFFFFFF" FontWeight="Thin"/>
+                    <TextBox x:Name="WireDiameterText" HorizontalAlignment="Left" Height="23" Margin="5,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="12" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="15" FontWeight="Thin"/>
+                    <Label x:Name="BobbinWidthLabel" Content="Bobbin Width:" HorizontalAlignment="Left" Margin="0,169,0,0" VerticalAlignment="Top" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="20" Foreground="#FFFFFFFF" FontWeight="Thin"/>
+                    <TextBox x:Name="BobbinWidthText" HorizontalAlignment="Left" Height="23" Margin="5,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="7" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="15" FontWeight="Thin"/>
+                    <Label x:Name="BobbinHeightLabel" Content="Bobbin Height:" HorizontalAlignment="Left" Margin="0,239,0,0" VerticalAlignment="Top" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="20" Foreground="#FFFFFFFF" FontWeight="Thin"/>
+                    <TextBox x:Name="BobbinHeightText" HorizontalAlignment="Left" Height="23" Margin="5,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="4" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="15" FontWeight="Thin"/>
+                    <Button x:Name="CalculateButton" Content="Calculate" HorizontalAlignment="Left" Margin="5,320,0,0" VerticalAlignment="Top" Width="121" Height="31" Click="CalculateButton_Click" IsEnabled="False" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="20" FontWeight="Thin"/>
+                </Grid>
+
+                <Grid x:Name="Column_Three" Margin="390,25,25,50">
+                    <Label Content="Output" HorizontalAlignment="Left" Margin="-5,0,0,0" VerticalAlignment="Top" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="30" Foreground="#FFFFFFFF"/>
+                    <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Left" Margin="129,7,0,0" VerticalAlignment="Top" Width="121" Height="31" Click="StartButton_Click" IsEnabled="False" FontFamily="Resources/Montserrat-Regular.ttf" FontSize="20" FontWeight="Thin"/>
+                    <ListView x:Name="OutputList" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="250" Height="251" BorderBrush="Black" BorderThickness="2" FontFamily="Calibri" FontSize="20" FontWeight="Thin" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" Foreground="White">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.Resources>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.Background>
+                            <ImageBrush ImageSource="Resources/BackgroundOutput.png" Opacity="0.5">
+                                <ImageBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
+                        </ListView.Background>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn x:Name="OutputListGrid"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
