@@ -10,7 +10,7 @@ namespace Coil_Windie_Boi
     /// </summary>
     public partial class SettingsPage : UserControl
     {
-        char[] pingData = new char[3] { 'B', 'P', '\n' };
+        char[] pingData = new char[2] { '1', '\n' };
 
         public SettingsPage()
         {
@@ -33,7 +33,7 @@ namespace Coil_Windie_Boi
                 PingButton.IsEnabled = true;
                 CalculateButton.IsEnabled = true;
 
-                ListShare.DataList.Insert(0, "Calibration complete");
+                ListShare.DataList.Insert(0, "Connected");
                 ListShare.Calibrated = true;
 
                 InternalSerialPort.serialPort.DataReceived += (_, EventArgs) =>
@@ -58,16 +58,17 @@ namespace Coil_Windie_Boi
 
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
-            char[] charArr = NumberOfTurnsText.Text.ToCharArray();
-            char[] calculateData = new char[charArr.Length+3];
-            calculateData[0] = 'B';
-            calculateData[1] = 'C';
+            char[] charArr = SpeedText.Text.ToCharArray();
+            char[] calculateData = new char[charArr.Length + 3];
+            calculateData[0] = 'S';
             for (int i = 0; i < charArr.Length; i++)
             {
-                calculateData[i+2] = charArr[i];
-                calculateData[i+3] = '\n';
+                calculateData[i + 2] = charArr[i];
+                calculateData[i + 3] = '\n';
             }
+            Console.WriteLine(calculateData);
             InternalSerialPort.SendData(calculateData);
+
         }
     }
 }

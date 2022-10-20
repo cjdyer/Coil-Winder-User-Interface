@@ -121,7 +121,7 @@
             <Border Grid.Row="3" BorderThickness="0,0,0,1" BorderBrush="Black" Opacity="0.5"/>
             <Border Grid.Row="5" BorderThickness="0,1,0,0" BorderBrush="Black" Opacity="0.5"/>
 
-            <Image Source="Resources/Logo.png" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.65" Height="200"/>
+            <Image Source="Resources/Logo.png" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.65" Height="100"/>
 
             <Button x:Name="HomeButton" Grid.Row="1" Style="{StaticResource MenuButton}" Click="HomeButton_Click">
                 <Button.Content>

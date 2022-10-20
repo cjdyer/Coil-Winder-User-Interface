@@ -119,62 +119,19 @@
         <Border BorderThickness="0,1,0,1" BorderBrush="Black" Grid.Row="1"/>
 
         <Grid Margin="25" Grid.Row="1">
-            <Label Content="Winding &#xA;Settings" Style="{StaticResource Words}"/>
-            <Label x:Name="WireDiameterLabel" Content="Wire Diameter:" Margin="180,10,0,0" Style="{StaticResource Words_2}"/>
-            <Label x:Name="BobbinWidthLabel" Content="Bobbin Width:" Margin="180,50,0,0" Style="{StaticResource Words_2}"/>
-            <Label x:Name="BobbinHeightLabel" Content="Bobbin Height:" Margin="465,10,0,0" Style="{StaticResource Words_2}"/>
-            <Label x:Name="NumberOfTurnsLabel" Content="No. of Turns:" Margin="465,50,0,0" Style="{StaticResource Words_2}"/>
-            <TextBox x:Name="WireDiameterText" Text="0.25" Margin="355,13,0,0" Style="{StaticResource TextBox}"/>
+            <Label Content="Removal &#xA;Settings" Style="{StaticResource Words}"/>
+            <Label x:Name="WireDiameterLabel" Content="No. of Prints:" Margin="180,10,0,0" Style="{StaticResource Words_2}"/>
+            <Label x:Name="BobbinWidthLabel" Content="Print Time:" Margin="180,50,0,0" Style="{StaticResource Words_2}"/>
+            <Label x:Name="BobbinHeightLabel" Content="Removal Speed:" Margin="465,10,0,0" Style="{StaticResource Words_2}"/>
+            <TextBox x:Name="WireDiameterText" Text="1" Margin="355,13,0,0" Style="{StaticResource TextBox}"/>
             <TextBox x:Name="BobbinWidthText" Text="12" Margin="355,54,0,0" Style="{StaticResource TextBox}"/>
-            <TextBox x:Name="BobbinHeightText" Text="3" Margin="640,13,0,0" Style="{StaticResource TextBox}"/>
-            <TextBox x:Name="NumberOfTurnsText" Text="5" Margin="640,54,0,0" Style="{StaticResource TextBox}"/>
+            <TextBox x:Name="SpeedText" Text="3" Margin="640,13,0,0" Style="{StaticResource TextBox}"/>
         </Grid>
 
-        <Grid Margin="25" Grid.Row="2">
-            <Button x:Name="CalibrateButton" Content="Calibrate" Margin="620,13,0,0" Click="CalibrateButton_Click" Style="{StaticResource Button}"/>
-            <Button x:Name="PingButton" Content="Ping" Margin="620,53,0,0" IsEnabled="False" Click="PingButton_Click" Style="{StaticResource Button}"/>
-            <Button x:Name="CalculateButton" Content="Calculate" Margin="620,93,0,0" IsEnabled="False" Click="CalculateButton_Click" Style="{StaticResource Button}"/>
-            <Grid HorizontalAlignment="Left" Width="600">
-                <Ellipse Margin="360,-20,0,0" Style="{StaticResource Ellipse}"/>
-                <Ellipse Margin="320,-20,0,0" Style="{StaticResource Ellipse}"/>
-                <Ellipse Margin="280,-20,0,0" Style="{StaticResource Ellipse}"/>
-                <Ellipse Margin="240,-20,0,0" Style="{StaticResource Ellipse}"/>
-                <Ellipse Margin="200,-20,0,0" Style="{StaticResource Ellipse}"/>
-                <Ellipse Margin="340,-90,0,0" Style="{StaticResource Ellipse}"/>
-                <Ellipse Margin="300,-90,0,0" Style="{StaticResource Ellipse}"/>
-                
-                <Rectangle Margin="400,30,0,0" Style="{StaticResource Rectangle}"/>
-                <Rectangle Margin="180,30,0,0" Style="{StaticResource Rectangle}"/>
-                <Rectangle Margin="199,90,0,0" Width="202" Height="70" Style="{StaticResource Rectangle}"/>
-                
-                <Line Style="{StaticResource Line}" X1="390" Y1="58" X2="390" Y2="148"/>
-                <Line Style="{StaticResource Line}" X1="383" Y1="58" X2="397" Y2="58"/>
-                <Line Style="{StaticResource Line}" X1="383" Y1="148" X2="397" Y2="148"/>
-                
-                <Line Style="{StaticResource Line}" X1="390" Y1="102" X2="430" Y2="90" StrokeThickness="1"/>
-                <Label Content="Bobbin Height" Margin="425,70,0,0" Style="{StaticResource Words_2}"/>
-                
-                <Line Style="{StaticResource Line}" X1="320" Y1="77" X2="320" Y2="148"/>
-                <Line Style="{StaticResource Line}" X1="327" Y1="77" X2="313" Y2="77"/>
-                <Line Style="{StaticResource Line}" X1="327" Y1="148" X2="313" Y2="148"/>
-
-                <Line Style="{StaticResource Line}" X1="320" Y1="115" X2="430" Y2="190" StrokeThickness="1"/>
-                <Label Content="No. of Turns" Margin="425,170,0,0" Style="{StaticResource Words_2}"/>
-
-                <Line Style="{StaticResource Line}" X1="202" Y1="240" X2="398" Y2="240"/>
-                <Line Style="{StaticResource Line}" X1="202" Y1="233" X2="202" Y2="247"/>
-                <Line Style="{StaticResource Line}" X1="398" Y1="233" X2="398" Y2="247"/>
-
-                <Line Style="{StaticResource Line}" X1="300" Y1="240" X2="165" Y2="190" StrokeThickness="1"/>
-                <Label Content="Bobbin Width" Margin="15,170,0,0" Style="{StaticResource Words_2}"/>
-
-                <Line Style="{StaticResource Line}" X1="203" Y1="130" X2="237" Y2="130"/>
-                <Line Style="{StaticResource Line}" X1="203" Y1="137" X2="203" Y2="123"/>
-                <Line Style="{StaticResource Line}" X1="237" Y1="137" X2="237" Y2="123"/>
-
-                <Line Style="{StaticResource Line}" X1="220" Y1="130" X2="165" Y2="90" StrokeThickness="1"/>
-                <Label Content="Wire Diameter" Margin="7,70,0,0" Style="{StaticResource Words_2}"/>
-            </Grid>
+        <Grid Margin="50" Grid.Row="2" HorizontalAlignment="Center">
+            <Button x:Name="CalibrateButton" Content="Connect" Margin="0,13,0,0" Click="CalibrateButton_Click" Style="{StaticResource Button}"/>
+            <Button x:Name="PingButton" Content="Ping" Margin="0,53,0,0" IsEnabled="False" Click="PingButton_Click" Style="{StaticResource Button}"/>
+            <Button x:Name="CalculateButton" Content="Calculate" Margin="0,93,0,0" IsEnabled="False" Click="CalculateButton_Click" Style="{StaticResource Button}"/>
         </Grid>
     </Grid>
 </UserControl>

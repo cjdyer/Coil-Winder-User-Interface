@@ -15,11 +15,11 @@ namespace Coil_Windie_Boi
         public NoiseEffect()
         {
             PixelShader pixelShader = new PixelShader();
-            pixelShader.UriSource = new Uri("C:/Users/Cory/source/repos/Coil Windie Boi/Noise.ps", UriKind.Absolute);
+            pixelShader.UriSource = new Uri("Noise.ps", UriKind.Relative);
             PixelShader = pixelShader;
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
-            bitmap.UriSource = new Uri("C:/Users/Cory/source/repos/Coil Windie Boi/Images/noise.png", UriKind.Absolute);
+            bitmap.UriSource = new Uri("noise.png", UriKind.Relative);
             bitmap.EndInit();
             RandomInput =
                 new ImageBrush(bitmap)

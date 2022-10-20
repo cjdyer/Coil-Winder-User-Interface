@@ -10,7 +10,9 @@ namespace Coil_Windie_Boi
     /// </summary>
     public partial class Window1 : Window
     {
-        char[] startData = new char[3] { 'B', 'S', '\n' };
+        char[] startData = new char[2] { '1', '\n' };
+        char[] pauseData = new char[2] { '2', '\n' };
+        bool removal_started = true;
         UIElement homePage = new HomePage();
         UIElement outputPage = new OutputPage();
         UIElement settingsPage = new SettingsPage();
@@ -56,11 +58,16 @@ namespace Coil_Windie_Boi
         {
             if (InternalSerialPort.serialPort.IsOpen)
             {
-                InternalSerialPort.SendData(startData);
+                if (removal_started)
+                    InternalSerialPort.SendData(startData);
+                else
+                    InternalSerialPort.SendData(pauseData);
+
+                removal_started = !removal_started;
             } 
             else
             {
-                ListShare.DataList.Insert(0, "Not Calibrated. Go to the settings menu.");
+                ListShare.DataList.Insert(0, "Not Connected. Go to the settings menu.");
             }
         }
     }

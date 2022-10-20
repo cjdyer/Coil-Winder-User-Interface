@@ -29,13 +29,11 @@
     <Grid>
         <Image Source="Resources/homeBackground.png" Opacity="0.9" Margin="0,50,50,0" Width="550" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Line Margin="0,348,0,0" Style="{StaticResource Line}"/>
-        <Label Content="A coil winding machine" Margin="0,365,0,0" FontSize="30" Style="{StaticResource Words}"/>
+        <Label Content="A Print Removal System" Margin="0,365,0,0" FontSize="30" Style="{StaticResource Words}"/>
         <Line Margin="0,425,0,0" Style="{StaticResource Line}"/>
         <Label Content="Created by:" Margin="0,445,0,0" Style="{StaticResource Words}"/>
-        <Label Content="Amanda Budvietas" Margin="-225,475,0,0" Style="{StaticResource Words}"/>
-        <Label Content="Brady Freemantle" Margin="225,475,0,0" Style="{StaticResource Words}"/>
-        <Label Content="Craig Martin-Smith" Margin="225,502,0,0" Style="{StaticResource Words}"/>
-        <Label Content="Ethan Hanlon" Margin="-225,502,0,0" Style="{StaticResource Words}"/>
-        <Label Content="Cory Dyer" Margin="0,529,0,0" Style="{StaticResource Words}"/>
+        <Label Content="Rebekah Fitz Patrick" Margin="205,475,0,0" Style="{StaticResource Words}"/>
+        <Label Content="Ethan Hanlon" Margin="-165,475,0,0" Style="{StaticResource Words}"/>
+        <Label Content="Cory Dyer" Margin="0,502,0,0" Style="{StaticResource Words}"/>
     </Grid>
 </UserControl>
